@@ -1,45 +1,33 @@
-import React, { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+import PageNotFound from './routes/PageNotFound';
+import Home from './routes/Home';
+
+const routes = [
+  {path: '/', component: Home},
+];
+
+/**
+ * A helper to generate a list of the main routes within the application. 
+ * Could potentially be useful to generate a sitemap or footer content.
+ * @returns {string[]} the available routes 
+ */
+export const getValidRoutes = () => routes.map(o => o.path);
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
+    <BrowserRouter>
+      <Switch>
+        {routes.map((o, idx) => (
+          <Route exact path={o.path} component={o.component} key={idx} />
+        ))}
+        <Route>
+          <PageNotFound />
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

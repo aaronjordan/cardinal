@@ -1,0 +1,64 @@
+.note-list {
+  overflow: hidden;
+}
+
+ul.note-list li {
+  width: 100%;
+  list-style-type: none;
+  border: 1px lightgray solid;
+  border-top: none;
+  padding: 12px;
+}
+
+ul.note-list.outer > li:first-of-type {
+  border-top: 1px lightgray solid;
+}
+
+.note-list.outer {
+  display: block;
+}
+
+.note-list .line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .left-group {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .right-group {
+    min-width: max-content;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.note-list-section {
+  position: relative;
+  background-color: rgb(245, 225, 208);
+  z-index: 1;
+}
+
+// svg.section-chevron,
+// .empty-icon {
+//   margin-right: var(--s-icon-min-margin);
+// }
+
+.open {
+  .section-chevron {
+    transform: rotate(0deg);
+  }
+}
+
+.closed {
+  &.note-list{
+    display: none;
+  }
+
+  .section-chevron {
+    transform: rotate(-90deg);
+  }
+}
