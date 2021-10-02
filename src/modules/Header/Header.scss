@@ -1,0 +1,23 @@
+header {
+  background-color: maroon;
+  display: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+
+  div.content-area {
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+    padding: 0 30px;
+    justify-content: space-between;
+  }
+
+  .logo {
+    color: white;
+    font-weight: 700;
+    font-size: 1.4rem;
+  }
+}
+
+

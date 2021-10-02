@@ -1,16 +1,20 @@
 :root {
-  --c-brand-main: #801511;
-  --c-brand-secondary: #801511;
+  --c-brand-main: #c93d27;
+  --c-brand-secondary: #242424;
   --c-brand-tertiary: #801511;
 
   --c-body-text: #222;
-  --c-headings-text: #333;
+  --c-headings-text: #e7e7e7;
+  --c-grid-borders:#555;
+  --c-focus-border: #333;
+  --c-cursor-color: #c93d27aa;
 
   --c-body-background: rgb(223, 223, 223);
   --c-content-background: whitesmoke;
 
   --s-body-max-width: 1100px;
   --s-icon-min-margin: 12px;
+  --s-font-base: 1rem;
 }
 
 * {
@@ -35,19 +39,67 @@ main {
   background-color: var(--c-content-background);
 }
 
+button.base {
+  background-color: var(--c-brand-secondary);
+  color: var(--c-headings-text);
+  border-width: 0px;
+  border-radius: calc(var(--s-font-base) / 2);
+  padding: calc(var(--s-font-base) / 2) var(--s-font-base);
+}
+
+button.icon, button.link, button.flex {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: var(--s-font-base);
+}
+
+button.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:focus {
+  outline: var(--c-focus-border) 2px solid;
+}
+
+button:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  opacity: 1;
+}
+
+a:focus, a:hover {
+  opacity: 0.8;
+}
+
 .empty-icon {
   display: inline-block;
 }
 
-.feather:not(*:first-child):not(*:last-child) {
+.icon:not(:first-child):not(:last-child) {
   margin-left: var(--s-icon-min-margin);
   margin-right: var(--s-icon-min-margin);
 }
 
-.feather:first-child {
+.icon:first-child:not(:only-child) {
   margin-right: var(--s-icon-min-margin)
 }
 
-.feather:last-child {
+.icon:last-child:not(:only-child) {
   margin-left: var(--s-icon-min-margin);
+}
+
+.action-icon {
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
 }

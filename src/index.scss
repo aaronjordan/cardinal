@@ -1,9 +1,12 @@
-/* placeholder for external imports */
+/* placeholder for external sheets */
 
 @use './App.scss';
 
+@use './components/Note/Note.scss';
 @use './components/NoteList/NoteList.scss';
 
+@use './modules/Header/Header.scss';
+@use './modules/Authentication/View/Authentication.scss';
 @use './modules/MyNotes.scss';
 
 @use './routes/PageNotFound.scss';

@@ -5,13 +5,17 @@
 ul.note-list li {
   width: 100%;
   list-style-type: none;
-  border: 1px lightgray solid;
+  border: 1px var(--c-grid-borders) solid;
   border-top: none;
   padding: 12px;
+
+  &:focus-within {
+    filter: brightness(0.95);
+  }
 }
 
 ul.note-list.outer > li:first-of-type {
-  border-top: 1px lightgray solid;
+  border-top: 1px var(--c-grid-borders) solid;
 }
 
 .note-list.outer {
@@ -23,9 +27,24 @@ ul.note-list.outer > li:first-of-type {
   align-items: center;
   justify-content: space-between;
 
+  .view-hover {
+    cursor: default;
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
+
+  &:hover .view-hover, &:focus-within .view-hover {
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.1s;
+  }
+
+  .item-title {
+    cursor: pointer;
+  }
+
   .left-group {
-    width: 100%;
-    display: flex;
+    display: inline-flex;
     align-items: center;
   }
 
@@ -36,16 +55,22 @@ ul.note-list.outer > li:first-of-type {
   }
 }
 
+.note-list {
+  span.left-group :first-child {
+    min-width: 24px;
+  }
+}
+
 .note-list-section {
   position: relative;
-  background-color: rgb(245, 225, 208);
+  background-color: var(--c-brand-main);
+  color: var(--c-headings-text);
   z-index: 1;
 }
 
-// svg.section-chevron,
-// .empty-icon {
-//   margin-right: var(--s-icon-min-margin);
-// }
+.note-list-item {
+  background-color: whitesmoke;
+}
 
 .open {
   .section-chevron {

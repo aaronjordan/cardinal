@@ -1,0 +1,41 @@
+.note-view:not(.body) {
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 6px;
+  }
+
+  span.meta {
+    font-weight: 600;
+    margin-top: 3px;
+    display: block;
+  }
+
+}
+
+.note-view .body {
+  margin-top: 18px;
+  white-space: pre-wrap;
+}
+
+.body-editor {
+  position: fixed;
+  width: 80vw;
+  height: 80vh;
+  resize: none;
+  opacity: 0;
+  z-index: -1;
+  transform: translateY(-100vh);
+}
+
+span.cursor {
+  background-color: var(--c-cursor-color);
+  display: inline;
+  position: relative;
+}
+
+span.cursor::after {
+  content: '';
+  position: absolute;
+  border-right: 2px solid var(--c-cursor-color);
+}

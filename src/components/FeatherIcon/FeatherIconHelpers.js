@@ -15,12 +15,10 @@ const parseOversizeArg = arg => {
 };
 
 export const parseIconSize = arg =>  {
-  console.log('parse this: ', arg)
   const sizeArg = arg !== undefined ? String(arg).toLowerCase() : undefined;
 
   // use parser for <int>x sizes
   if(s.ICON_REGEX_X.test(sizeArg)) {
-    console.log('it is oversize')
     return parseOversizeArg(sizeArg);
   }
 

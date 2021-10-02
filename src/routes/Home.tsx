@@ -3,9 +3,9 @@ import MyNotes from '../modules/MyNotes';
 
 const Home = () => {
   return (
-    <main>
-      <h1>Home page</h1>
-      <p>This is the home page</p>
+    <main id="home-page">
+      <h1>Home component</h1>
+      <p>All the user's notes are listed below.</p>
       <MyNotes />
     </main>
   );

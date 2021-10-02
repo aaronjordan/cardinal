@@ -3,20 +3,23 @@ import PropTypes from 'prop-types';
 import IconList from './FeatherIconList';
 import { parseIconSize } from './FeatherIconHelpers';
 
-const Icon = props => {
+interface IconProps {
+  [key: string]: any;
+};
+
+const Icon = (props: IconProps) => {
   const {
     icon = "empty",
     size: argSize
   } = props;
   const size = parseIconSize(argSize);
-  console.log('size returned ' + size)
 
   if (!icon) {
     console.warn("a FeatherIcon was listed with no 'icon' prop and will not render.");
     return null;
   } else if (icon === "empty") {
     return <i 
-      className="feather empty-icon" 
+      className={`${props.className || ""} feather empty-icon`} 
       style={{width: size, height: size}}
     />
   } else if (!IconList.includes(icon)) {
@@ -26,7 +29,9 @@ const Icon = props => {
 
   return (
     <svg
-      className={props.className ? props.className + " feather " + icon : " feather " + icon}
+      id={props.id}
+      className={`${props.className || ""} feather ${icon}`}
+      style={{color: "inherit"}}
       width={size}
       height={size}
       fill="none"
@@ -34,6 +39,7 @@ const Icon = props => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      onClick={props.onClick}
     >
       <use xlinkHref={`../../../assets/feather-sprite.svg#${icon}`}/>
     </svg>

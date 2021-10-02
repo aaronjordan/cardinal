@@ -1,0 +1,57 @@
+.auth-login {
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  fieldset {
+    width: calc(var(--s-body-max-width) / 2.5);
+    margin: 24px 1%;
+    border: 0;
+  }
+
+  fieldset#basic-auth {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    column-gap: var(--s-font-base);
+    row-gap: calc(var(--s-font-base) * 1.5);
+    align-items: center;
+
+    button {
+      grid-column: 2;
+      justify-self: start;
+    }
+  }
+
+  legend {
+    font-size: calc(var(--s-font-base) * 1.3);
+    padding: 0 2%;
+    margin: 0 auto calc(var(--s-font-base) * 1.75);
+  }
+
+  label {
+    width: auto;
+    text-align: right;
+  }
+
+  input {
+    height: calc(var(--s-font-base) * 1.6);
+    font-size: var(--s-font-base);
+    box-sizing: content-box;
+    padding: calc(var(--s-font-base) * 0.5);
+  }
+
+  fieldset#oauth {
+    text-align: center;
+  }
+}
+
+.user-account-controls > * {
+  margin-left: 6px;
+}
+
+p.privacy-disclaimer {
+  text-align: center;
+}
